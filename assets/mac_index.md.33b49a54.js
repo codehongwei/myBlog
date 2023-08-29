@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as a,k as n}from"./chunks/framework.3fb6b5c0.js";const x=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"mac/index.md","filePath":"mac/index.md"}'),c={name:"mac/index.md"},o=n("p",null,"Mac主页",-1),s=[o];function r(d,i,_,m,p,l){return t(),a("div",null,s)}const h=e(c,[["render",r]]);export{x as __pageData,h as default};

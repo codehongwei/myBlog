@@ -1,0 +1,20 @@
+:root {
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #bd34fe 30%,
+    #41d1ff
+  );
+  --vp-home-hero-name-color: transparent;
+}
+body :where(.VPNavBar.has-sidebar .title, .VPSidebar) {
+  padding-left: 10px !important;
+}
+.VPNavBarTitle.has-sidebar .title {
+  padding-left: 0 !important;
+}
+
+.VPSidebarItem .is-active .text {
+  font-weight: 700 !important;
+  border-left: 3px solid var(--vp-c-brand-1);
+  padding-left: 5px;
+}

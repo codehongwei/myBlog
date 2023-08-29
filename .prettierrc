@@ -1,0 +1,9 @@
+{
+  "tabWidth": 2,
+  "singleQuote": true,
+  "no-var": true,
+  "default-case": true,
+  "semi": false,
+  "trailingComma": "none",
+  "bracketSpacing": true
+}

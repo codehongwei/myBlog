@@ -1,27 +1,35 @@
-name: Build and Deploy
-on: # 监听 main 分支上的 push 事件
+name: 自动打包并部署
+
+on:
   push:
     branches:
       - master
+
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest # 构建环境使用 ubuntu
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout # 获取源码
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+      - name: Checkout 代码
+        uses: actions/checkout@v2
+
       - name: Install pnpm # 安装pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 6.0.2
-      - name: Install and Build # 下载依赖 打包项目
-        run: |
-          pnpm install
-          pnpm docs:build
-      - name: Deploy # 将打包内容发布到 github page
-        uses: JamesIves/github-pages-deploy-action@v4 # 使用别人写好的 actions
-        with: # 自定义环境变量
-          BRANCH: master # github page指定分支
-          FOLDER: dist # build后生成的目录
-          clean: true
+
+      - name: 安装依赖
+        run: pnpm install
+
+      - name: 构建应用
+        run: pnpm docs:build
+
+      - name: 部署到服务器
+        uses: easingthemes/ssh-deploy@v2.2.6
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }} # SSH 私钥，用于与远程服务器建立安全连接。 
+          ARGS: '-rltgoDzvO --delete'
+          SOURCE: 'dist/' # 要部署的文件或目录的路径。
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }} # 远程服务器的主机名或 IP 地址。 
+          REMOTE_USER: ${{ secrets.REMOTE_USER }} # 连接远程服务器所需的用户名
+          # TARGET: '/var/www/my-app' # 部署到远程服务器的目标路径

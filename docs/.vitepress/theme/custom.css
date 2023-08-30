@@ -6,15 +6,18 @@
   );
   --vp-home-hero-name-color: transparent;
 }
+
+/* 设置侧边栏边距 start */
 body :where(.VPNavBar.has-sidebar .title, .VPSidebar) {
   padding-left: 10px !important;
 }
 .VPNavBarTitle.has-sidebar .title {
   padding-left: 0 !important;
 }
+/* 设置侧边栏边距 end */
 
-.VPSidebarItem .is-active .text {
+/* .VPSidebarItem .is-active .text {
   font-weight: 700 !important;
   border-left: 3px solid var(--vp-c-brand-1);
   padding-left: 5px;
-}
+} */

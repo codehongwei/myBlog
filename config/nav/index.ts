@@ -2,16 +2,24 @@ import type { DefaultTheme } from 'vitepress'
 
 const NavConfig: DefaultTheme.NavItem[] = [
   {
-    text: 'mac技巧',
-    link: '/mac/'
+    text: 'jsWebApi',
+    items: [
+      {
+        text: 'Worker',
+        link: '/webApi/Worker'
+      }
+    ]
   },
   {
-    text: 'github使用技巧',
-    // link: '/github/',
+    text: 'mac',
+    link: '/mac/app'
+  },
+  {
+    text: 'github使用',
     items: [
       {
         text: '自动化部署',
-        link: '/github/autoDeploy.md'
+        link: '/github/autoDeploy'
       }
     ]
   }

@@ -20,7 +20,7 @@ jobs:
       - name: Install and Build # 下载依赖 打包项目
         run: |
           pnpm install
-          pnpm  docs:build
+          pnpm docs:build
 
       - name: Deploy # 部署
         uses: JamesIves/github-pages-deploy-action@v4.3.3

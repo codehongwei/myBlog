@@ -7,7 +7,13 @@ const NavConfig: DefaultTheme.NavItem[] = [
   },
   {
     text: 'github使用技巧',
-    link: '/github/'
+    // link: '/github/',
+    items: [
+      {
+        text: '自动化部署',
+        link: '/github/autoDeploy.md'
+      }
+    ]
   }
 ]
 
